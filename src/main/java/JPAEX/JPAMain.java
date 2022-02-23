@@ -1,7 +1,6 @@
 package JPAEX;
 
-import JPAEX.JPAex1.Order;
-import JPAEX.JPAex1.OrderItem;
+import JPAEX.JPAex1.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,8 +18,11 @@ public class JPAMain {
         tx.begin();
 
         try{
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("abc");
+
+            em.persist(book);
 
             tx.commit();
         }catch(Exception e){
